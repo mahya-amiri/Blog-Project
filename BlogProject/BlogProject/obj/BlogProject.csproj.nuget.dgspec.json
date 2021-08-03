@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\documents\\fusoft\\Blog-Project\\BlogProject\\BlogProject\\BlogProject.csproj": {}
+    "D:\\documents\\fusoft\\Blog-Project\\blogProject\\blogProject\\blogProject.csproj": {}
   },
   "projects": {
-    "D:\\documents\\fusoft\\Blog-Project\\BlogProject\\BlogProject\\BlogProject.csproj": {
+    "D:\\documents\\fusoft\\Blog-Project\\blogProject\\blogProject\\blogProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\documents\\fusoft\\Blog-Project\\BlogProject\\BlogProject\\BlogProject.csproj",
-        "projectName": "BlogProject",
-        "projectPath": "D:\\documents\\fusoft\\Blog-Project\\BlogProject\\BlogProject\\BlogProject.csproj",
+        "projectUniqueName": "D:\\documents\\fusoft\\Blog-Project\\blogProject\\blogProject\\blogProject.csproj",
+        "projectName": "blogProject",
+        "projectPath": "D:\\documents\\fusoft\\Blog-Project\\blogProject\\blogProject\\blogProject.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\documents\\fusoft\\Blog-Project\\BlogProject\\BlogProject\\obj\\",
+        "outputPath": "D:\\documents\\fusoft\\Blog-Project\\blogProject\\blogProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
