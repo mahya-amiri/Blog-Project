@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { getArticles } from "../services/articlesService";
-import Pagination from "./common/pagination";
-import { paginate } from "../utils/paginate";
+import { getArticles } from "../services/ArticlesService";
+import Pagination from "./common/Pagination";
+import { paginate } from "../utils/Paginate";
 
 class Articles extends Component {
   state = {
@@ -17,6 +17,23 @@ class Articles extends Component {
   handlePageChange = (page) => {
     this.setState({ currentPage: page });
   };
+
+  componentDidMount() {
+    this.getArticleInfo();
+  }
+
+  getArticleInfo() {
+    const articleId = route.getParam("id");
+    try {
+      this.setState((prev) => {
+        return {
+          ...prev,
+          loading: true,
+        };
+        const result = articlesService.getArticleInfo(articleId);
+      });
+    } catch (error) {}
+  }
 
   render() {
     const { length: count } = this.state.articles;
@@ -41,12 +58,12 @@ class Articles extends Component {
                 <td>{article.category}</td>
                 <td>{article.content}</td>
                 <td>
-                  <button
-                    onClick={() => this.handleContinue(article)}
+                  <a
+                    href={`/articles/${article.id}`}
                     className="btn btn-info btn sm"
                   >
                     ادامه مقاله
-                  </button>
+                  </a>
                 </td>
               </tr>
             ))}

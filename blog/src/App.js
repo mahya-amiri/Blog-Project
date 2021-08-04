@@ -1,11 +1,21 @@
 import React, { Component } from "react";
-import Articles from "./components/articles";
+import Navigation from "./components/Navigation";
 import "./App.css";
 
 function App() {
   return (
     <main className="container">
-      <Articles></Articles>
+      {/* <div>
+        <a href="/">Index</a>
+        <span class="mx-2">|</span>
+        <a href="/articles">Articles</a>
+      </div>
+      <Switch>
+        <Route path="/" component={Index} />
+        <Route path="/articles" component={Articles} />
+        <Route path="/articles/:id" component={ArticleDetail} />
+      </Switch> */}
+      <Navigation></Navigation>
     </main>
   );
 }
