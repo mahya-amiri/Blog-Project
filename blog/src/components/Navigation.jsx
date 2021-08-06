@@ -1,24 +1,25 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Articles from "./Articles";
 
 export default function App() {
   return (
     <Router>
-      <div>
+      <div className="nav content-right" dir="rtl">
         <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-          </ul>
+          <Link to="/">صفحه ی اصلی</Link>
+          <span className="mx-2">|</span>
+          <Link to="/article">مقالات</Link>
+          <span className="mx-2">|</span>
+          <Link to="/about">درباره ی ما</Link>
         </nav>
 
         <Switch>
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/article">
+            <Article />
           </Route>
           <Route path="/">
             <Home />
@@ -35,4 +36,7 @@ function Home() {
 
 function About() {
   return <h2>About</h2>;
+}
+function Article() {
+  return <Articles></Articles>;
 }

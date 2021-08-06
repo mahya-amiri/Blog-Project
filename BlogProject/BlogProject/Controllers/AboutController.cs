@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace BlogProject.Controllers
 {
-    public class BlogController : Controller
+    public class AboutController : Controller
     {
         public string Index()
         {
-            return "Hello World";
+            return "درباره ی ما";
         }
     }
 }

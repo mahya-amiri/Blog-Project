@@ -38,3 +38,4 @@ D:\documents\fusoft\Blog-Project\BlogProject\BlogProject\obj\Debug\net5.0\ref\Bl
 D:\documents\fusoft\Blog-Project\BlogProject\BlogProject\obj\Debug\net5.0\BlogProject.pdb
 D:\documents\fusoft\Blog-Project\BlogProject\BlogProject\obj\Debug\net5.0\BlogProject.genruntimeconfig.cache
 D:\documents\fusoft\Blog-Project\BlogProject\BlogProject\obj\Debug\net5.0\BlogProject.csproj.CopyComplete
+D:\documents\fusoft\Blog-Project\BlogProject\BlogProject\obj\Debug\net5.0\Razor\Views\Articles\Index.cshtml.g.cs

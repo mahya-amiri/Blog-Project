@@ -18,22 +18,22 @@ class Articles extends Component {
     this.setState({ currentPage: page });
   };
 
-  componentDidMount() {
-    this.getArticleInfo();
-  }
+  // componentDidMount() {
+  //   this.getArticleInfo();
+  // }
 
-  getArticleInfo() {
-    const articleId = route.getParam("id");
-    try {
-      this.setState((prev) => {
-        return {
-          ...prev,
-          loading: true,
-        };
-        const result = articlesService.getArticleInfo(articleId);
-      });
-    } catch (error) {}
-  }
+  // getArticleInfo() {
+  //   const articleId = route.getParam("id");
+  //   try {
+  //     this.setState((prev) => {
+  //       return {
+  //         ...prev,
+  //         loading: true,
+  //       };
+  //       const result = articlesService.getArticleInfo(articleId);
+  //     });
+  //   } catch (error) {}
+  // }
 
   render() {
     const { length: count } = this.state.articles;
