@@ -8,9 +8,9 @@ namespace BlogProject.Controllers
 {
     public class ArticlesController : Controller
     {
-        public IActionResult Index()
+        public string Index()
         {
-            return View();
+            return "AAA";
         }
     }
 }

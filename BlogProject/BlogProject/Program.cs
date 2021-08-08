@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BlogProject.Models;
 
 namespace BlogProject
 {
@@ -13,14 +14,31 @@ namespace BlogProject
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
-        }
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
+            using Context myContext = new Context();
+            myContext.Posts.Add(new Post
+            {
+                PostId = 1,
+                PostTitle = "Pair Programming",
+                PostCategory = new List<Category>()
                 {
-                    webBuilder.UseStartup<Startup>();
-                });
+                    new Category()
+                    {
+                        CategoryId = 1,
+                        CategoryContent = "Programming"
+                    }
+                },
+                PostComment = new List<Comment>()
+               {
+                   new Comment()
+                   {
+                       CommentId = 1,
+                       CommentCategory = "read",
+                       CommentBody = "That was good :)"
+                   }
+               }
+            }
+            ); 
+        }
     }
+
 }
