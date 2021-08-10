@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Weblog", "Weblog\Weblog.csproj", "{5B89E68B-376B-4993-8F70-E5E52FB595DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weblog.Domain", "Weblog.Domain\Weblog.Domain.csproj", "{85566672-6D8B-4DC6-9E1E-9B5A563BE80F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B89E68B-376B-4993-8F70-E5E52FB595DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B89E68B-376B-4993-8F70-E5E52FB595DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B89E68B-376B-4993-8F70-E5E52FB595DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B89E68B-376B-4993-8F70-E5E52FB595DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85566672-6D8B-4DC6-9E1E-9B5A563BE80F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85566672-6D8B-4DC6-9E1E-9B5A563BE80F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85566672-6D8B-4DC6-9E1E-9B5A563BE80F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85566672-6D8B-4DC6-9E1E-9B5A563BE80F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB0F8B49-B805-4E2E-9C05-800E60DD4E5A}
+	EndGlobalSection
+EndGlobal

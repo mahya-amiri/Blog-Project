@@ -1,0 +1,12 @@
+D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog.Domain\bin\Debug\netcoreapp3.1\Weblog.Domain.deps.json
+D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog.Domain\bin\Debug\netcoreapp3.1\Weblog.Domain.runtimeconfig.json
+D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog.Domain\bin\Debug\netcoreapp3.1\Weblog.Domain.runtimeconfig.dev.json
+D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog.Domain\bin\Debug\netcoreapp3.1\Weblog.Domain.dll
+D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog.Domain\bin\Debug\netcoreapp3.1\Weblog.Domain.pdb
+D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog.Domain\obj\Debug\netcoreapp3.1\Weblog.Domain.AssemblyInfoInputs.cache
+D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog.Domain\obj\Debug\netcoreapp3.1\Weblog.Domain.AssemblyInfo.cs
+D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog.Domain\obj\Debug\netcoreapp3.1\Weblog.Domain.csproj.CoreCompileInputs.cache
+D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog.Domain\obj\Debug\netcoreapp3.1\Weblog.Domain.dll
+D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog.Domain\obj\Debug\netcoreapp3.1\Weblog.Domain.pdb
+D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog.Domain\obj\Debug\netcoreapp3.1\Weblog.Domain.genruntimeconfig.cache
+D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog.Domain\obj\Debug\netcoreapp3.1\Weblog.Domain.csproj.AssemblyReference.cache

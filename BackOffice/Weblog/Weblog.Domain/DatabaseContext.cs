@@ -1,0 +1,23 @@
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using Weblog.Domain.Models;
+
+namespace Weblog.Domain
+{
+    public class DatabaseContext: DbContext
+    {
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Article> Articles { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if(!optionsBuilder.IsConfigured)
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Weblog");
+        }
+        //base.OnConfiguring(optionsBuilder);
+    }
+}
