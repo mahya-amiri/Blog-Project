@@ -8,12 +8,15 @@ namespace BlogProject.Models
 {
     public class User
     {
-        public string FirstName { get; set; }
+        public string FistName { get; set; }
         public string LastName { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
+
         [Key]
-        public Guid Id{ get; set; }
+        public Guid Id { get; set; }
+
+
     }
 }

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -14,31 +15,49 @@ namespace BlogProject
     {
         public static void Main(string[] args)
         {
-            using Context myContext = new Context();
-            myContext.Posts.Add(new Post
-            {
-                PostId = 1,
-                PostTitle = "Pair Programming",
-                PostCategory = new List<Category>()
-                {
-                    new Category()
-                    {
-                        CategoryId = 1,
-                        CategoryContent = "Programming"
-                    }
-                },
-                PostComment = new List<Comment>()
-               {
-                   new Comment()
-                   {
-                       CommentId = 1,
-                       CommentCategory = "read",
-                       CommentBody = "That was good :)"
-                   }
-               }
-            }
-            ); 
+            var host = CreateWebHostBuilder(args).Build();
+            Dbinitializer();
+            host.Run();
         }
-    }
 
+        private static void Dbinitializer()
+        {
+            var myContext = new Context();
+            if (!myContext.Posts.Any())
+                myContext.Posts.Add(new Post
+                {
+                    Title = "Pair Programing",
+                    Category = new Category()
+                {
+                        Title = "Programing"
+                },
+                    Comments = new List<Comment>()
+                {
+                    new Comment()
+                    {
+                       Body  = "Has been done!"
+                    }
+                }
+                }
+               );
+            myContext.SaveChanges();
+        }
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        {
+            return WebHost.CreateDefaultBuilder(args)
+            .UseIISIntegration()
+            .UseStartup<Startup>()
+            .ConfigureLogging((hostingContext, logging) =>
+            {
+                logging.ClearProviders();
+                logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
+                logging.AddConsole();
+                logging.AddDebug();
+                logging.AddEventSourceLogger();
+            });
+        }
+
+
+    }
 }

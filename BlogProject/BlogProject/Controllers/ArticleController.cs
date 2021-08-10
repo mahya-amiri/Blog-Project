@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace BlogProject.Controllers
 {
-    public class ArticlesController : Controller
+    public class ArticleController : Controller
     {
         public string Index()
         {
-            return "AAA";
+            string msg = "This is Article PAGE!";
+            return msg;
         }
     }
 }

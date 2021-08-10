@@ -10,7 +10,8 @@ namespace BlogProject.Controllers
     {
         public string Index()
         {
-            return "درباره ی ما";
+            string msg = "This is About US PAGE!";
+            return msg;
         }
     }
 }

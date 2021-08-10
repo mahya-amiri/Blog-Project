@@ -7,9 +7,10 @@ namespace BlogProject.Models
 {
     public class Post
     {
-        public int PostId { get; set; }
-        public string PostTitle { get; set; }
-        public List<Category> PostCategory { get; set; }
-        public List<Comment> PostComment { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public Category Category { get; set; }
+        public int CategoryId { get; set; }
+        public List<Comment> Comments { get; set; }
     }
 }
