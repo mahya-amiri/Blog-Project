@@ -25,6 +25,8 @@ namespace Weblog.Domain.Models
         public DateTime UpdatedAt { get; set; }
         [Required]
         public int UserId { get; set; }
+        [Required]
+        [ForeignKey("UserId")]
         public User User { get; set; }
         [Required]
         public int CategoryId { get; set; }
