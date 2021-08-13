@@ -17,11 +17,21 @@ namespace Weblog.Domain.Models
         [Required]
         [MaxLength(200)]
         public string  Email { get; set; }
-        public List<Article> Articles { get; set; }
-        public List<Comment> Comments { get; set; }
+        public List<Article> Articles { get; }
+        public List<Comment> Comments { get; }
         public User()
         {
 
+        }
+        public User(string name, string email)
+        {
+            if (name.Length > 50)
+            {
+                throw new Exception("نام کاربر نمی تواند بیشتر از 50 کاراکتر باشد!");
+            }
+
+            this.Name = name;
+            this.Email = email;
         }
     }
 }

@@ -9,4 +9,3 @@ D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog.Domain\obj\Debug\
 D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog.Domain\obj\Debug\netcoreapp3.1\Weblog.Domain.dll
 D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog.Domain\obj\Debug\netcoreapp3.1\Weblog.Domain.pdb
 D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog.Domain\obj\Debug\netcoreapp3.1\Weblog.Domain.genruntimeconfig.cache
-D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog.Domain\obj\Debug\netcoreapp3.1\Weblog.Domain.csproj.AssemblyReference.cache

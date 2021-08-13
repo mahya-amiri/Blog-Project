@@ -79,3 +79,6 @@ D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog\bin\Debug\netcore
 D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog\bin\Debug\netcoreapp3.1\Weblog.Domain.pdb
 D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog\bin\Debug\netcoreapp3.1\Humanizer.dll
 D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\documents\Work\fusoft\Blog-Project\BackOffice\Weblog\Weblog\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
