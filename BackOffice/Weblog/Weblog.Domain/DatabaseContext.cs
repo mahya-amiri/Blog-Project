@@ -1,13 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Weblog.Domain.Models;
 
 
 namespace Weblog.Domain
 {
-    public class DatabaseContext: DbContext
+    public class DatabaseContext : DbContext
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<User> Users { get; set; }
@@ -26,9 +23,8 @@ namespace Weblog.Domain
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if(!optionsBuilder.IsConfigured)
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Weblog");
+            if (!optionsBuilder.IsConfigured)
+                optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Weblog");
         }
-        //base.OnConfiguring(optionsBuilder);
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace Weblog.Domain.Models
 {
@@ -35,6 +34,7 @@ namespace Weblog.Domain.Models
         public Category Category { get; set; }
         public List<Comment> Comments { get; set; }
         public string Status { get; set; }
+
         public Article()
         {
 

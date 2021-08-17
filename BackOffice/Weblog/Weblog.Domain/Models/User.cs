@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Weblog.Domain.Models
@@ -20,12 +19,15 @@ namespace Weblog.Domain.Models
         public string  Email { get; set; }
         public List<Article> Articles { get; }
         public List<Comment> Comments { get; }
+
         public User()
         {
 
         }
+
         public User(string name, string email)
         {
+            // Validations for Name
             if (name == null)
             {
                 throw new Exception("نام کاربر را وارد کنید");
@@ -35,7 +37,7 @@ namespace Weblog.Domain.Models
                 throw new Exception("نام کاربر نمی تواند بیشتر از 50 کاراکتر باشد");
             }
 
-
+            // Validations for Email
             if (email == null)
             {
                 throw new Exception("ایمیل کاربر را وارد کنید");

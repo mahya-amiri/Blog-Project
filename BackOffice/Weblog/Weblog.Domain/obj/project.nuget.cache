@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oY7dCnSQn2xy1ogfmahqwPp7cSGzSkd6iiLMmT/SXwPgdysIe0vE7gNq411mOV9PahcKCFywqZjvADcZ2WSgrg==",
+  "dgSpecHash": "LNkASeHC9Mc/yy9rHd8Bc4jHbCE+h3/wQnVYu2NahbP9DF280i6UDXDYkgLSiSnO1w/5fC4HDeBV09GnxOHBrQ==",
   "success": true,
-  "projectFilePath": "D:\\documents\\Work\\fusoft\\Blog-Project\\BackOffice\\Weblog\\Weblog.Domain\\Weblog.Domain.csproj",
+  "projectFilePath": "D:\\Documents\\Work\\FuSoft\\Blog-Project\\BackOffice\\Weblog\\Weblog.Domain\\Weblog.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Weblog.Domain;
 using Weblog.Domain.Models;
 using Weblog.Requests;
@@ -50,7 +48,6 @@ namespace Weblog.Controllers
                 this._db.Users.Add(user);
                 _db.SaveChanges();
                 return Ok(new UserVM(user.Id, user.Name, user.Email));
-
             }
             catch (Exception e)
             {
@@ -77,7 +74,6 @@ namespace Weblog.Controllers
             var user = _db.Users.Find(id);
             _db.Users.Remove(user);
             _db.SaveChanges();
-
             return "successful";
         }
     }
