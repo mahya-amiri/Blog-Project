@@ -24,7 +24,7 @@ namespace Weblog.Domain
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-                optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Weblog");
+                optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Weblog_FuSoft");
         }
     }
 }

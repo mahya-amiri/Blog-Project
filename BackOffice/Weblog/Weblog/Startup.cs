@@ -44,6 +44,11 @@ namespace Weblog
 
             app.UseRouting();
 
+            app.UseCors(builder => builder
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowAnyOrigin());
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

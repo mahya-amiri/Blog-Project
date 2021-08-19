@@ -1,3 +1,5 @@
 {
-  "liveServer.settings.port": 3001
+  "liveServer.settings.port": 3001,
+  "editor.fontFamily": "'Anonymous Pro', Consolas",
+  "editor.fontSize": 16
 }

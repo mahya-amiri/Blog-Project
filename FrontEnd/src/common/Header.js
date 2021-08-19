@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Header({ title }) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
         <a className="navbar-brand" href="#">
           وبلاگ من
@@ -19,7 +19,7 @@ function Header({ title }) {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
+          <ul className="navbar-nav" dir="rtl">
             <li className="nav-item">
               <Link className="nav-link" to="/">
                 صفحه اصلی
