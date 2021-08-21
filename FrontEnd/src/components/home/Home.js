@@ -24,7 +24,7 @@ function Home() {
       <h2>کاربران</h2>
       {users.length > 0 ? (
         <table className="table table-bordered table-striped table-hover">
-          <thead>
+          <thead className="table-dark">
             <tr>
               <td>#</td>
               <td>نام کاربر</td>

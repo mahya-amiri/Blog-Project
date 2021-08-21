@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "b0ISg1hQhxD6/8SiRIwAIEgZpIOrtPDscR94IoTb+NRD8X16O0Y7QVEDyCrMcNfmid+1nI/3egZF5UnPknkjPg==",
+  "dgSpecHash": "cYscxyBWa9sduAUYKjTttnPes0FRe8sFOaSca3eZcUxNpGIeHZk+oUiwTwq+lMeB7M9cAIexgLSUrAaG7GM3yA==",
   "success": true,
-  "projectFilePath": "D:\\Documents\\Work\\FuSoft\\Blog-Project\\BackOffice\\Weblog\\Weblog\\Weblog.csproj",
+  "projectFilePath": "D:\\documents\\Work\\fusoft\\Blog-Project\\BackOffice\\Weblog\\Weblog\\Weblog.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.18\\microsoft.aspnetcore.jsonpatch.3.1.18.nupkg.sha512",
