@@ -1,15 +1,17 @@
 import Sidebar from "../../../common/panel/sildebar/Slidebar";
 import Header from "../../../common/panel/header/Header";
-import Footer from "../../../common/panel/Footer";
+import Footer from "../../../common/panel/footer/Footer";
 import "./style.scss";
 
 function PanelLayout({ children }) {
   return (
-    <div className="d-flex flex-row flex-nowrap">
+    <div id="panelLayout" className="d-flex flex-row flex-nowrap">
       <Sidebar></Sidebar>
-      <div className="flex-grow-1">
+      <div id="route-container" className="flex-grow-1">
         <Header></Header>
-        <div>{children} </div>
+        <div id="content" className="container py-3">
+          {children}{" "}
+        </div>
         <Footer></Footer>
       </div>
     </div>
