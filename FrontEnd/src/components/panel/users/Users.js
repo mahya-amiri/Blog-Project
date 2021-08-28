@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import usersService from "../../../services/usersService";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -26,17 +27,15 @@ function Users() {
 
   const onDeleteUser = async (id) => {
     try {
-      if (confirm("کاربر حذف شود؟")) {
+      if (window.confirm("کاربر حذف شود؟")) {
         setLoading(true);
         await usersService.deleteUser(id);
         await getUsers();
-        toast.success("کاربر مورد نظر با موفقیت حذف شد");
         setLoading(false);
       }
     } catch (error) {
       console.log(error);
       setLoading(false);
-      toast.error("خطا در حذف کاربر");
     }
   };
 
@@ -53,6 +52,7 @@ function Users() {
                 <td>#</td>
                 <td>نام کاربر</td>
                 <td>ایمیل کاربر</td>
+                <td></td>
               </tr>
             </thead>
             <tbody>
@@ -95,7 +95,12 @@ function Users() {
 
   return (
     <div>
-      <h2>کاربران</h2>
+      <div className="d-flex flex-row align-items-center justify-content-between mb-4 mb-lg-5">
+        <h2 className="m-0">کاربران</h2>
+        <Link className="btn btn-primary" to="/panel/users/create">
+          ایجاد کاربر
+        </Link>
+      </div>
       {renderContent()}
     </div>
   );
