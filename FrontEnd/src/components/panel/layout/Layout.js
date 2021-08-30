@@ -9,7 +9,7 @@ function PanelLayout({ children }) {
       <Sidebar></Sidebar>
       <div id="route-container" className="flex-grow-1">
         <Header></Header>
-        <div id="content" className="container py-3">
+        <div id="content" className="p-3">
           {children}{" "}
         </div>
         <Footer></Footer>

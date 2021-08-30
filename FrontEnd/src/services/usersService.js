@@ -1,9 +1,11 @@
 import http from "./base";
 import { toast } from "react-toastify";
 
-async function getAllUsers() {
+async function getAllUsers(query = "", sort = "", page = 1, perPage = 15) {
   try {
-    const { data } = await http.get("users");
+    const { data } = await http.get(
+      `users?query=${query}&sort=${sort}&page=${page}&perPage=${perPage}`
+    );
     return data;
   } catch (error) {
     console.log(error);
@@ -75,6 +77,7 @@ async function updateUser(id, name, email) {
   }
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   getAllUsers,
   deleteUser,
