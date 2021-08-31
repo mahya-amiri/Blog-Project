@@ -1,25 +1,31 @@
 import { useEffect, useState } from "react";
-import usersService from "../../../services/usersService";
 import { Link } from "react-router-dom";
+import usersService from "../../../services/usersService";
 import { useForm } from "react-hook-form";
+import Pagination from "../../../common/Pagination";
 
 function Users() {
   const [users, setUsers] = useState([]);
+  const [totalUsers, setTotalUsers] = useState(0);
+  const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
 
   const {
     register,
     handleSubmit,
-    // reset,
-    // formState: { errors },
+    reset,
+    getValues,
+    formState: { errors },
   } = useForm();
 
-  const getUsers = async (query = "", sort = "") => {
+  const getUsers = async (query = "", sort = "", page = 1) => {
     try {
       setLoading(true);
-      const result = await usersService.getAllUsers(query, sort);
+      const result = await usersService.getAllUsers(query, sort, page);
       if (Array.isArray(result.data)) {
+        setPage(page);
         setUsers(result.data);
+        setTotalUsers(result.totalUsers);
       }
       setLoading(false);
     } catch (error) {
@@ -28,11 +34,18 @@ function Users() {
     }
   };
 
-  const onFilterSubmit = (data) => {
-    console.log(data);
+  const onPageClick = (page) => {
+    getUsers(getValues("query"), getValues("sort"), page);
   };
 
-  const onFilterReset = () => {};
+  const onFilterSubmit = (data) => {
+    getUsers(data.query, data.sort);
+  };
+
+  const onFilterReset = () => {
+    reset();
+    getUsers();
+  };
 
   useEffect(() => {
     getUsers();
@@ -40,7 +53,8 @@ function Users() {
 
   const onDeleteUser = async (id) => {
     try {
-      if (window.confirm("کاربر حذف شود؟")) {
+      // eslint-disable-next-line no-restricted-globals
+      if (confirm("کاربر حذف شود؟")) {
         setLoading(true);
         await usersService.deleteUser(id);
         await getUsers();
@@ -60,7 +74,7 @@ function Users() {
       return (
         <div className="table-responsive">
           <table className="table table-bordered table-striped table-hover text-nowrap">
-            <thead className="table-dark">
+            <thead>
               <tr>
                 <td>#</td>
                 <td>نام کاربر</td>
@@ -78,7 +92,7 @@ function Users() {
                     <td>
                       <Link
                         to={`/panel/users/${user.id}/edit`}
-                        className="btn btn-sm btn-primary ms-2"
+                        className="btn btn-sm btn-primary me-2"
                       >
                         ویرایش
                       </Link>
@@ -107,14 +121,13 @@ function Users() {
   };
 
   return (
-    <div className="p-3">
+    <div>
       <div className="d-flex flex-row align-items-center justify-content-between mb-4 mb-lg-5">
         <h2 className="m-0">کاربران</h2>
         <Link className="btn btn-primary" to="/panel/users/create">
           ایجاد کاربر
         </Link>
       </div>
-
       <div className="mb-3">
         <form
           className="row row-cols-lg-auto g-3 align-items-center"
@@ -131,7 +144,7 @@ function Users() {
 
           <div className="col-12">
             <select className="form-select" {...register("sort")}>
-              <option selected="" hidden>
+              <option value="" hidden>
                 نوع مرتب سازی را انتخاب کنید:
               </option>
               <option value="oldest">قدیمی ترین</option>
@@ -155,40 +168,13 @@ function Users() {
           </div>
         </form>
       </div>
-
       {renderContent()}
-
-      <div>
-        <nav aria-label="Page navigation example">
-          <ul className="pagination">
-            <li className="page-item">
-              <a className="page-link" href="#1">
-                قبلی
-              </a>
-            </li>
-            <li className="page-item">
-              <a className="page-link" href="#2">
-                1
-              </a>
-            </li>
-            <li className="page-item">
-              <a className="page-link" href="#3">
-                2
-              </a>
-            </li>
-            <li className="page-item">
-              <a className="page-link" href="#4">
-                3
-              </a>
-            </li>
-            <li className="page-item">
-              <a className="page-link" href="#5">
-                بعدی
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      <Pagination
+        total={totalUsers}
+        perPage={4}
+        currentPage={page}
+        onPageClick={onPageClick}
+      />
     </div>
   );
 }

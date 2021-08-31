@@ -66,7 +66,7 @@ async function updateUser(id, name, email) {
       name,
       email,
     });
-    toast.success("کار بر مورد نظر با موفقیت ویرایش شد");
+    toast.success("کاربر مورد نظر با موفقیت ویرایش شد");
   } catch (error) {
     let message = "خطا در ویرایش اطلاعات کاربر";
     if (error.response?.data?.Message) {
@@ -77,7 +77,6 @@ async function updateUser(id, name, email) {
   }
 }
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   getAllUsers,
   deleteUser,

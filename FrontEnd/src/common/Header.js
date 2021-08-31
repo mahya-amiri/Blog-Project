@@ -19,7 +19,7 @@ function Header({ title }) {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav" dir="rtl">
+          <ul className="navbar-nav">
             <li className="nav-item">
               <Link className="nav-link" to="/">
                 صفحه اصلی
@@ -41,6 +41,12 @@ function Header({ title }) {
               </Link>
             </li>
           </ul>
+        </div>
+
+        <div>
+          <Link to="/auth" className="btn btn-primary">
+            ورود/ثبت نام
+          </Link>
         </div>
       </div>
     </nav>
