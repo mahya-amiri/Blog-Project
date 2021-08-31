@@ -18,6 +18,9 @@ namespace Weblog.Domain.Models
         [Required]
         [MaxLength(200)]
         public string Email { get; set; }
+        [Required]
+        public string Password { get; set; }
+        public string? Token { get; set; }
         public List<Article> Articles { get; }
         public List<Comment> Comments { get; }
 
@@ -26,7 +29,7 @@ namespace Weblog.Domain.Models
 
         }
 
-        public User(string name, string email)
+        public User(string name, string email, string password)
         {
             // Validations for Name
             if (name == null)
@@ -59,8 +62,21 @@ namespace Weblog.Domain.Models
                 throw new Exception("آدرس ایمیل وارد شده تکراری می باشد");
             }
 
+            if (password.Length <= 6)
+            {
+                throw new Exception("کلمه عبور باید بیشتر از 6 کاراکتر باشد");
+            }
+
+            // Validations for Password
+            var validPassword = Regex.Match(password, @"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$");
+            if (!validPassword.Success)
+            {
+                throw new Exception("رمز عبور باید شامل حروف، عدد و حداقل یک کاراکتر خاص باشد");
+            }
+
             this.Name = name;
             this.Email = email;
+            this.Password = GetHashString(password);
         }
 
         public void Update(string name, string email)
