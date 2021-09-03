@@ -1,9 +1,10 @@
-import { Switch, Route } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import Home from "../components/home/Home";
 import Categories from "../components/categories/Categories";
 import Search from "../components/search/Search";
 import About from "../components/other/About";
 import Header from "../common/Header";
+import Route from "./Route";
 
 function PublicRoutes() {
   return (

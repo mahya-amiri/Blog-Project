@@ -1,15 +1,16 @@
-import { Switch, Route } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import PanelRoutes from "./PanelRoutes";
 import PublicRoutes from "./PublicRoutes";
 import AuthRoutes from "./AuthRoutes";
+import Route from "./Route";
 
 function Navigation() {
   return (
     <Switch>
-      <Route path="/panel/">
+      <Route auth path="/panel/">
         <PanelRoutes />
       </Route>
-      <Route path="/auth/">
+      <Route guest path="/auth/">
         <AuthRoutes />
       </Route>
       <Route path="/">
