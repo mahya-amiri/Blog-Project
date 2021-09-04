@@ -71,13 +71,13 @@ function CreateUser() {
                   required: "لطفا ایمیل خود را وارد کنید",
                 })}
               ></input>
-              <div class="invalid-feedback">{errors?.email?.message}</div>
+              <div className="invalid-feedback">{errors?.email?.message}</div>
             </div>
           </div>
 
           <div className="col-12 col-md-6">
             <div className="mb-3">
-              <label for="password" class="form-label">
+              <label for="password" className="form-label">
                 رمز عبور
               </label>
               <input
@@ -96,7 +96,9 @@ function CreateUser() {
                   },
                 })}
               />
-              <div class="invalid-feedback">{errors?.password?.message}</div>
+              <div className="invalid-feedback">
+                {errors?.password?.message}
+              </div>
             </div>
           </div>
         </div>
