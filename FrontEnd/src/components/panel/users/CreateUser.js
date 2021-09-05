@@ -11,11 +11,11 @@ function CreateUser() {
     reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = async (name, email, password) => {
+  const onSubmit = async (name, email, password, isAdmin) => {
     try {
       if (!loading) {
         setLoading(true);
-        await usersService.createUser(name, email, password);
+        await usersService.createUser(name, email, password, isAdmin);
         reset();
         setLoading(false);
       }
@@ -98,6 +98,22 @@ function CreateUser() {
               />
               <div className="invalid-feedback">
                 {errors?.password?.message}
+              </div>
+            </div>
+          </div>
+
+          <div className="col-12">
+            <div className="mb-3">
+              <div className="form-check">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  {...register("isAdmin")}
+                  id="isAdminCheck"
+                />
+                <label className="form-check-label" for="isAdminCheck">
+                  کاربر مورد نظر مدیر است؟
+                </label>
               </div>
             </div>
           </div>

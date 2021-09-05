@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -23,6 +24,9 @@ namespace Weblog.Domain.Models
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
+        [Required]
+        [DefaultValue(false)]
+        public bool IsAdmin { get; set; }
         public string? Token { get; set; }
         public List<Article> Articles { get; }
         public List<Comment> Comments { get; }
@@ -31,7 +35,7 @@ namespace Weblog.Domain.Models
         {
         }
 
-        public User(string name, string email, string password)
+        public User(string name, string email, string password, bool isAdmin = false)
         {
             CheckValidation(name, email, password);
 
@@ -49,6 +53,7 @@ namespace Weblog.Domain.Models
             this.Name = name;
             this.Email = email;
             this.Password = GetHashString(password);
+            this.IsAdmin = isAdmin;
         }
 
         public void Update(string name, string email, string newPassword, string currentPassword)
@@ -75,7 +80,7 @@ namespace Weblog.Domain.Models
             this.Email = email;
         }
 
-        public void UpdateByAdmin(string name, string email, string newPassword)
+        public void UpdateByAdmin(string name, string email, string newPassword, bool isAdmin = false)
         {
             CheckValidation(name, email, newPassword);
 
@@ -93,6 +98,7 @@ namespace Weblog.Domain.Models
 
             this.Name = name;
             this.Email = email;
+            this.IsAdmin = isAdmin;
         }
 
         public void Login(string password)
@@ -130,7 +136,7 @@ namespace Weblog.Domain.Models
                 throw new Exception("آدرس ایمیل وارد شده معتبر نمی باشد");
             }
 
-            if (password != null)
+            if (String.IsNullOrEmpty(password))
             {
 
                 if (password.Length <= 6)

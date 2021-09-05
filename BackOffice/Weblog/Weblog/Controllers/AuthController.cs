@@ -32,7 +32,7 @@ namespace Weblog.Controllers
                 }
                 user.Login(request.Password);
 
-                return Ok(new LoginResponse(user.Id, user.Name, user.Email, user.Token));
+                return Ok(new LoginResponse(user.Id, user.Name, user.Email, user.Token, user.IsAdmin));
             }
             catch (Exception e)
             {
@@ -42,7 +42,7 @@ namespace Weblog.Controllers
 
         [Route("register")]
         [HttpPost]
-        public IActionResult Register([FromBody] RegisterRequest request)
+        public async Task<IActionResult> Register([FromBody] RegisterRequest request)
         {
             try
             {
@@ -53,9 +53,10 @@ namespace Weblog.Controllers
 
                 var user = new User(request.Name, request.Email, request.Password);
                 user.Login(request.Password);
-                _db.SaveChanges();
+                await _db.Users.AddAsync(user);
+                await _db.SaveChangesAsync();
 
-                return Ok(new LoginResponse(user.Id, user.Name, user.Email, user.Token));
+                return Ok(new LoginResponse(user.Id, user.Name, user.Email, user.Token, user.IsAdmin));
             }
             catch (Exception e)
             {
