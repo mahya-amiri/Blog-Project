@@ -39,6 +39,7 @@ RouteWrapper.propTypes = {
   auth: PropTypes.bool,
   guest: PropTypes.bool,
 };
+
 RouteWrapper.defaultProps = {
   auth: false,
   guest: false,

@@ -1,15 +1,14 @@
 import { Switch } from "react-router-dom";
-import Home from "../components/home/Home";
-import Categories from "../components/categories/Categories";
-import Search from "../components/search/Search";
-import About from "../components/other/About";
 import Header from "../common/Header";
+import Categories from "../components/categories/Categories";
+import Home from "../components/home/Home";
+import About from "../components/other/About";
+import Search from "../components/search/Search";
 import Route from "./Route";
 
 function PublicRoutes() {
   return (
     <div>
-      {" "}
       <Header title="Home" />
       <Switch>
         <Route exact path="/">
@@ -21,11 +20,12 @@ function PublicRoutes() {
         <Route path="/search">
           <Search />
         </Route>
-        <Route path="/about">
+        <Route exact path="/about">
           <About />
         </Route>
       </Switch>
     </div>
   );
 }
+
 export default PublicRoutes;

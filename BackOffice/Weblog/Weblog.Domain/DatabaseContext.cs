@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Weblog.Domain.Models;
 
-
 namespace Weblog.Domain
 {
     public class DatabaseContext : DbContext
@@ -15,19 +14,29 @@ namespace Weblog.Domain
         {
             modelBuilder.Entity<Comment>()
                 .HasOne<User>(c => c.User)
-                .WithMany(u => u.Comments)
+                .WithMany(c => c.Comments)
                 .HasForeignKey(c => c.UserId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.NoAction);
 
+            modelBuilder.Entity<Category>()
+                .HasMany(c => c.Children)
+                .WithOne()
+                .HasForeignKey(c => c.ParentId)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.NoAction);
+
             modelBuilder.Entity<User>()
-              .HasIndex(x => x.Email).IsUnique(true);
+                .HasIndex(x => x.Email).IsUnique(true);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
+            {
                 optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Weblog_FuSoft");
+            }
+            base.OnConfiguring(optionsBuilder);
         }
     }
 }

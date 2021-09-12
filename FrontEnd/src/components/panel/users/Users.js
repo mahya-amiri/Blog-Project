@@ -53,8 +53,7 @@ function Users() {
 
   const onDeleteUser = async (id) => {
     try {
-      // eslint-disable-next-line no-restricted-globals
-      if (confirm("کاربر حذف شود؟")) {
+      if (window.confirm("آیا مطمئن هستید؟")) {
         setLoading(true);
         await usersService.deleteUser(id);
         await getUsers();
@@ -144,9 +143,7 @@ function Users() {
 
           <div className="col-12">
             <select className="form-select" {...register("sort")}>
-              <option value="" hidden>
-                نوع مرتب سازی را انتخاب کنید:
-              </option>
+              <option value="">مرتب سازی</option>
               <option value="oldest">قدیمی ترین</option>
               <option value="latest">جدیدترین</option>
             </select>
@@ -171,7 +168,7 @@ function Users() {
       {renderContent()}
       <Pagination
         total={totalUsers}
-        perPage={4}
+        perPage={15}
         currentPage={page}
         onPageClick={onPageClick}
       />

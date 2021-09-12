@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import usersService from "../../../services/usersService";
 
 function CreateUser() {
@@ -11,7 +11,7 @@ function CreateUser() {
     reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = async (name, email, password, isAdmin) => {
+  const onSubmit = async ({ name, email, password, isAdmin }) => {
     try {
       if (!loading) {
         setLoading(true);
@@ -24,11 +24,10 @@ function CreateUser() {
       setLoading(false);
     }
   };
-
   return (
     <div>
       <div className="d-flex flex-row align-items-center justify-content-between mb-4 mb-lg-5">
-        <h2 className="m-0">ایجاد کاربر جدید</h2>
+        <h2 className="m-0">ایجاد کاربر</h2>
         <Link className="btn btn-secondary" to="/panel/users">
           بازگشت
         </Link>
@@ -46,16 +45,13 @@ function CreateUser() {
                   errors?.name?.message ? "is-invalid" : ""
                 }`}
                 id="name"
-                {...register("name", { required: "لطفا نام خود را وارد کنید" })}
-              ></input>
-              {errors?.name?.message && (
-                <div className="form-text text-danger">
-                  {errors?.name?.message}
-                </div>
-              )}
+                {...register("name", {
+                  required: "لطفا نام کاربر را وارد کنید",
+                })}
+              />
+              <div className="invalid-feedback">{errors?.name?.message}</div>
             </div>
           </div>
-
           <div className="col-12 col-md-6">
             <div className="mb-3">
               <label for="email" className="form-label">
@@ -68,13 +64,12 @@ function CreateUser() {
                 }`}
                 id="email"
                 {...register("email", {
-                  required: "لطفا ایمیل خود را وارد کنید",
+                  required: "لطفا ایمیل کاربر را وارد کنید",
                 })}
-              ></input>
+              />
               <div className="invalid-feedback">{errors?.email?.message}</div>
             </div>
           </div>
-
           <div className="col-12 col-md-6">
             <div className="mb-3">
               <label for="password" className="form-label">
@@ -101,7 +96,6 @@ function CreateUser() {
               </div>
             </div>
           </div>
-
           <div className="col-12">
             <div className="mb-3">
               <div className="form-check">
@@ -112,17 +106,18 @@ function CreateUser() {
                   id="isAdminCheck"
                 />
                 <label className="form-check-label" for="isAdminCheck">
-                  کاربر مورد نظر مدیر است؟
+                  آیا مدیر است؟
                 </label>
               </div>
             </div>
           </div>
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button disabled={loading} type="submit" className="btn btn-primary">
           ذخیره
         </button>
       </form>
     </div>
   );
 }
+
 export default CreateUser;

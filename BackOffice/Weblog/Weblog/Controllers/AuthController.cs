@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using Weblog.Domain;
 using Weblog.Domain.Models;
 using Weblog.Requests;
@@ -31,6 +30,7 @@ namespace Weblog.Controllers
                     return NotFound("کاربری با این آدرس ایمیل یافت نشد");
                 }
                 user.Login(request.Password);
+                _db.SaveChanges();
 
                 return Ok(new LoginResponse(user.Id, user.Name, user.Email, user.Token, user.IsAdmin));
             }
@@ -63,5 +63,6 @@ namespace Weblog.Controllers
                 return BadRequest(e);
             }
         }
+
     }
 }

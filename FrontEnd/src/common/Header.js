@@ -10,6 +10,7 @@ function Header({ title, user }) {
       console.log(error);
     }
   };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
@@ -54,20 +55,20 @@ function Header({ title, user }) {
 
         <div>
           {!user?.token && (
-            <Link to="/auth" className="btn btn-primary">
+            <Link to="/auth" className="btn btn-success">
               ورود/ثبت نام
             </Link>
           )}
           {!!user?.token && (
             <div className="dropdown">
               <div
-                className="dropdown-toggle"
+                className="dropdown-toggle text-light"
                 type="button"
                 id="dropdownMenuButton2"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                خوش آمدید، {user?.name}
+                {user?.name} عزیز، خوش آمدید
               </div>
               <ul
                 className="dropdown-menu dropdown-menu-dark"

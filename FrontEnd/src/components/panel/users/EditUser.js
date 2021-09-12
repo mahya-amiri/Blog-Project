@@ -10,10 +10,11 @@ function EditUser() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
     setValue,
   } = useForm();
-  const onSubmit = async (name, email, password, isAdmin) => {
+  const onSubmit = async ({ name, email, password, isAdmin }) => {
     try {
       if (!loading) {
         setLoading(true);
@@ -130,7 +131,7 @@ function EditUser() {
                   id="isAdminCheck"
                 />
                 <label className="form-check-label" for="isAdminCheck">
-                  کاربر مورد نظر مدیر است؟
+                  آیا مدیر است؟
                 </label>
               </div>
             </div>

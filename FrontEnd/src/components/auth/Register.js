@@ -61,7 +61,7 @@ function Register() {
               className={`form-control ${errors?.email ? "is-invalid" : ""}`}
               id="email"
               {...register("email", {
-                required: "لطفا آدرس ایمیل خود را وارد کنید",
+                required: "آدرس ایمیل خود را وارد کنید",
                 maxLength: {
                   value: 200,
                   message: "آدرس ایمیل طولانی می باشد",
@@ -76,10 +76,10 @@ function Register() {
               type="password"
               className={`form-control ${errors?.password ? "is-invalid" : ""}`}
               {...register("password", {
-                required: "لطفا رمز عبور خود را وارد کنید",
+                required: "رمز عبور خود را وارد کنید",
                 minLength: {
                   value: 6,
-                  message: "حداقل طول رمز عبور باید 6 کاراکتر باشد",
+                  message: "حداقل طول رمز عبور 6 کاراکتر می باشد",
                 },
                 pattern: {
                   value:
@@ -101,10 +101,10 @@ function Register() {
               }`}
               id="password_confirm"
               {...register("password_confirm", {
-                required: "لطفا رمز عبور را تکرار کنید",
+                required: "تکرار رمز عبور را وارد کنید",
                 validate: (password_confirm) => {
                   if (password_confirm !== watch("password")) {
-                    return "کلمه عبور مطابقت ندارد";
+                    return "تکرار کلمه عبور مطابقت ندارد";
                   }
                   return true;
                 },
@@ -124,7 +124,7 @@ function Register() {
       </div>
       <Link className="text-white" to="/">
         <i className="fa fa-angle-right me-2"></i>
-        بازگشت به صفحه اصلی
+        بازگشت به خانه
       </Link>
     </div>
   );

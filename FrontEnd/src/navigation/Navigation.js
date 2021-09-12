@@ -1,7 +1,7 @@
 import { Switch } from "react-router-dom";
+import AuthRoutes from "./AuthRoutes";
 import PanelRoutes from "./PanelRoutes";
 import PublicRoutes from "./PublicRoutes";
-import AuthRoutes from "./AuthRoutes";
 import Route from "./Route";
 
 function Navigation() {
@@ -19,4 +19,10 @@ function Navigation() {
     </Switch>
   );
 }
+
+export function isActiveRoute(route, pattern) {
+  const regex = new RegExp(pattern);
+  return regex.test(route);
+}
+
 export default Navigation;

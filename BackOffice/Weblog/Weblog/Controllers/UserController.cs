@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Weblog.Domain;
 using Weblog.Domain.Models;
 using Weblog.Requests;
@@ -19,17 +19,15 @@ namespace Weblog.Controllers
             this._db = new DatabaseContext();
         }
 
-        // Get All Users
+        // Get all users
         public IActionResult Index(UsersListRequest request)
         {
             try
             {
                 var users = _db.Users.AsNoTracking();
-
                 if (request.Query != null)
                 {
-                    users = users.Where(x =>
-                        x.Name.Contains(request.Query) || x.Email.Contains(request.Query));
+                    users = users.Where(x =>x.Name.Contains(request.Query) || x.Email.Contains(request.Query));
                 }
 
                 users = request.Sort switch
@@ -38,21 +36,16 @@ namespace Weblog.Controllers
                     "latest" => users.OrderByDescending(x => x.Id),
                     _ => users.OrderByDescending(x => x.Id)
                 };
-
-
                 var usersCount = users.Count();
-
                 var result = users.Skip((request.Page - 1) * request.PerPage).Take(request.PerPage)
                     .Select(x => new UserVM(x.Id, x.Name, x.Email, x.IsAdmin))
                     .ToList();
-
                 return Ok(new UsersListResponse(result, usersCount));
             }
             catch (Exception e)
             {
                 return BadRequest(e);
             }
-
         }
 
         [Route("{id}")]
@@ -73,8 +66,6 @@ namespace Weblog.Controllers
             {
                 return BadRequest(e);
             }
-
-
         }
 
         [HttpPost]
@@ -86,6 +77,7 @@ namespace Weblog.Controllers
                 this._db.Users.Add(user);
                 _db.SaveChanges();
                 return Ok(new UserVM(user.Id, user.Name, user.Email, user.IsAdmin));
+
             }
             catch (Exception e)
             {
@@ -104,17 +96,15 @@ namespace Weblog.Controllers
                 {
                     return NotFound();
                 }
-                user.UpdateByAdmin(request.Name, request.Email, request.Password);
+                user.UpdateByAdmin(request.Name, request.Email, request.Password, request.IsAdmin);
                 _db.SaveChanges();
                 return Ok(new UserVM(user.Id, user.Name, user.Email, user.IsAdmin));
-
             }
             catch (Exception e)
             {
                 return BadRequest(e);
             }
         }
-
 
         [HttpDelete]
         [Route("{id}")]

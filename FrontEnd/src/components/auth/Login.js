@@ -37,7 +37,7 @@ function Login() {
               className={`form-control ${errors?.email ? "is-invalid" : ""}`}
               id="email"
               {...register("email", {
-                required: "آدرس ایمیل خود را وارد کنید",
+                required: "آدرس ایمیل را وارد کنید",
               })}
             />
             <div className="invalid-feedback">{errors?.email?.message}</div>
@@ -64,7 +64,7 @@ function Login() {
       </div>
       <Link className="text-white" to="/">
         <i className="fa fa-angle-right me-2"></i>
-        بازگشت به صفحه اصلی
+        بازگشت به خانه
       </Link>
     </div>
   );

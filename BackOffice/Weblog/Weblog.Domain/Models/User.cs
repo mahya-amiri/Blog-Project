@@ -7,7 +7,6 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using Microsoft.EntityFrameworkCore;
 
 namespace Weblog.Domain.Models
 {
@@ -33,6 +32,7 @@ namespace Weblog.Domain.Models
 
         public User()
         {
+
         }
 
         public User(string name, string email, string password, bool isAdmin = false)
@@ -50,12 +50,12 @@ namespace Weblog.Domain.Models
             {
                 throw new Exception("آدرس ایمیل وارد شده تکراری می باشد");
             }
+
             this.Name = name;
             this.Email = email;
-            this.Password = GetHashString(password);
             this.IsAdmin = isAdmin;
+            this.Password = GetHashString(password);
         }
-
         public void Update(string name, string email, string newPassword, string currentPassword)
         {
             CheckValidation(name, email, newPassword);
@@ -66,13 +66,13 @@ namespace Weblog.Domain.Models
             {
                 throw new Exception("آدرس ایمیل وارد شده تکراری می باشد");
             }
+
             if (newPassword != null)
             {
                 if (GetHashString(currentPassword) != this.Password)
                 {
                     throw new Exception("رمز عبور فعلی اشتباه می باشد");
                 }
-
                 this.Password = GetHashString(newPassword);
             }
 
@@ -111,34 +111,36 @@ namespace Weblog.Domain.Models
             this.Token = token;
         }
 
-
         public static void CheckValidation(string name, string email, string password)
         {
             if (name == null)
             {
                 throw new Exception("نام کاربر را وارد کنید");
             }
+
             if (email == null)
             {
                 throw new Exception("ایمیل کاربر را وارد کنید");
             }
+
             if (name.Length >= 50)
             {
                 throw new Exception("نام کاربر نمی تواند بیشتر از 50 کاراکتر باشد");
             }
+
             if (email.Length >= 200)
             {
                 throw new Exception("ایمیل کاربر نمی تواند بیشتر از 200 کاراکتر باشد");
             }
+
             var validEmail = Regex.Match(email, @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$");
             if (!validEmail.Success)
             {
                 throw new Exception("آدرس ایمیل وارد شده معتبر نمی باشد");
             }
 
-            if (String.IsNullOrEmpty(password))
+            if (!String.IsNullOrEmpty(password))
             {
-
                 if (password.Length <= 6)
                 {
                     throw new Exception("رمز عبور باید بیشتر از 6 کاراکتر باشد");
@@ -154,13 +156,14 @@ namespace Weblog.Domain.Models
         public static byte[] GetHash(string inputString)
         {
             using (HashAlgorithm algorithm = SHA256.Create())
-                return algorithm.ComputeHash(Encoding.UTF8.GetBytes(inputString));
+            return algorithm.ComputeHash(Encoding.UTF8.GetBytes(inputString));
         }
         public static string GetHashString(string inputString)
         {
             StringBuilder sb = new StringBuilder();
             foreach (byte b in GetHash(inputString))
                 sb.Append(b.ToString("X2"));
+
             return sb.ToString();
         }
     }

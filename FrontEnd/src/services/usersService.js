@@ -1,5 +1,5 @@
-import http from "./base";
 import { toast } from "react-toastify";
+import http from "./base";
 
 async function getAllUsers(query = "", sort = "", page = 1, perPage = 15) {
   try {
