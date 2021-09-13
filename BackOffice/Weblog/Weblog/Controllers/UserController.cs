@@ -77,7 +77,6 @@ namespace Weblog.Controllers
                 this._db.Users.Add(user);
                 _db.SaveChanges();
                 return Ok(new UserVM(user.Id, user.Name, user.Email, user.IsAdmin));
-
             }
             catch (Exception e)
             {

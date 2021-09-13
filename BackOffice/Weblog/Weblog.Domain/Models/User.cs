@@ -48,7 +48,7 @@ namespace Weblog.Domain.Models
             var duplicate = _db.Users.Count(x => x.Email == email);
             if (duplicate > 0)
             {
-                throw new Exception("آدرس ایمیل وارد شده تکراری می باشد");
+                throw new Exception("آدرس ایمیل وارد شده، تکراری می باشد");
             }
 
             this.Name = name;
@@ -64,14 +64,14 @@ namespace Weblog.Domain.Models
             var duplicate = _db.Users.Count(x => x.Email == email && x.Id != this.Id);
             if (duplicate > 0)
             {
-                throw new Exception("آدرس ایمیل وارد شده تکراری می باشد");
+                throw new Exception("آدرس ایمیل وارد شده، تکراری می باشد");
             }
 
             if (newPassword != null)
             {
                 if (GetHashString(currentPassword) != this.Password)
                 {
-                    throw new Exception("رمز عبور فعلی اشتباه می باشد");
+                    throw new Exception("رمز عبور فعلی نادرست می باشد");
                 }
                 this.Password = GetHashString(newPassword);
             }
@@ -88,7 +88,7 @@ namespace Weblog.Domain.Models
             var duplicate = _db.Users.Count(x => x.Email == email && x.Id != this.Id);
             if (duplicate > 0)
             {
-                throw new Exception("آدرس ایمیل وارد شده تکراری می باشد");
+                throw new Exception("آدرس ایمیل وارد شده، تکراری می باشد");
             }
 
             if (newPassword != null)
@@ -105,7 +105,7 @@ namespace Weblog.Domain.Models
         {
             if (GetHashString(password) != this.Password)
             {
-                throw new Exception("رمز عبور اشتباه می باشد");
+                throw new Exception("رمز عبور نادرست می باشد");
             }
             string token = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
             this.Token = token;
@@ -136,7 +136,7 @@ namespace Weblog.Domain.Models
             var validEmail = Regex.Match(email, @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$");
             if (!validEmail.Success)
             {
-                throw new Exception("آدرس ایمیل وارد شده معتبر نمی باشد");
+                throw new Exception("آدرس ایمیل وارد شده، معتبر نمی باشد");
             }
 
             if (!String.IsNullOrEmpty(password))

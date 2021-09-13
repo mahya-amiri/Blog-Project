@@ -29,32 +29,32 @@ namespace Weblog.Controllers
             }
         }
 
-        [HttpPost]
-        public IActionResult Store([FromBody] CreateUserRequest request)
-        {
-            try
-            {
-                return BadRequest(new NotImplementedException());
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e);
-            }
-        }
+        //[HttpPost]
+        //public IActionResult Store([FromBody] CreateUserRequest request)
+        //{
+        //    try
+        //    {
+        //        return BadRequest(new NotImplementedException());
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return BadRequest(e);
+        //    }
+        //}
 
-        [HttpPost]
-        [Route("{id}")]
-        public IActionResult Update(int id, [FromBody] CreateUserRequest request)
-        {
-            try
-            {
-                return BadRequest(new NotImplementedException());
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e);
-            }
-        }
+        //[HttpPost]
+        //[Route("{id}")]
+        //public IActionResult Update(int id, [FromBody] CreateUserRequest request)
+        //{
+        //    try
+        //    {
+        //        return BadRequest(new NotImplementedException());
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return BadRequest(e);
+        //    }
+        //}
 
 
         [HttpDelete]

@@ -15,7 +15,7 @@ namespace Weblog.Responses
         {
         }
 
-        public LoginResponse(int id,string name, string email, string token, bool isAdmin)
+        public LoginResponse(int id, string name, string email, string token, bool isAdmin)
         {
             Id = id;
             Name = name;
