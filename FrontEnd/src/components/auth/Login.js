@@ -5,12 +5,10 @@ import authService from "../../services/authService";
 import "./style.scss";
 
 function Login() {
-  const [loadin, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
-    reset,
-    getValues,
     formState: { errors },
   } = useForm();
 

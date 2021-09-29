@@ -36,6 +36,7 @@ namespace Weblog.Controllers
                     "latest" => users.OrderByDescending(x => x.Id),
                     _ => users.OrderByDescending(x => x.Id)
                 };
+
                 var usersCount = users.Count();
                 var result = users.Skip((request.Page - 1) * request.PerPage).Take(request.PerPage)
                     .Select(x => new UserVM(x.Id, x.Name, x.Email, x.IsAdmin))

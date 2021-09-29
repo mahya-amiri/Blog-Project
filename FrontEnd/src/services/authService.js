@@ -74,9 +74,20 @@ function isLoggedIn() {
   }
 }
 
+function getToken() {
+  try {
+    const state = store.getState();
+    return state?.user?.token || "";
+  } catch (error) {
+    console.log(error);
+    return "";
+  }
+}
+
 export default {
   login,
   register,
   logout,
   isLoggedIn,
+  getToken,
 };

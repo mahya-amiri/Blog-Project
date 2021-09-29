@@ -143,9 +143,11 @@ function Users() {
 
           <div className="col-12">
             <select className="form-select" {...register("sort")}>
-              <option value="">مرتب سازی</option>
+              <option value="" hidden>
+                مرتب سازی
+              </option>
               <option value="oldest">قدیمی ترین</option>
-              <option value="latest">جدیدترین</option>
+              <option value="latest">جدید ترین</option>
             </select>
           </div>
 

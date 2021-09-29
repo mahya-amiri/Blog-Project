@@ -57,7 +57,7 @@ function Sidebar({ open, onToggleSideBar }) {
             <span>مدیریت نظرات</span>
           </Link>
         </li>
-        <li
+        {/* <li
           className={`${
             isActiveRoute(location.pathname, "^/panel/pages.*") ? "active" : ""
           }`}
@@ -65,7 +65,7 @@ function Sidebar({ open, onToggleSideBar }) {
           <Link to="/panel/pages">
             <span>مدیریت صفحات</span>
           </Link>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

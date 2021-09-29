@@ -6,9 +6,9 @@ namespace Weblog.ViewModels
     public class CategoryWithChildrenVM
     {
         public int Id { get; set; }
-        public int? ParentId { get; set; }
         public string Title { get; set; }
         public int Order { get; set; }
+        public int? ParentId { get; set; }
         public List<CategoryWithChildrenVM>? Children { get; set; }
 
         public CategoryWithChildrenVM(Category category)

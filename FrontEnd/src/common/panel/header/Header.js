@@ -11,7 +11,7 @@ function Header({ onToggleSideBar }) {
   };
 
   return (
-    <div id="header">
+    <div id="header" className="p-3 bg-dark text-light">
       <div>
         <button
           className="btn btn-light me-3 d-sm-none"
@@ -19,7 +19,7 @@ function Header({ onToggleSideBar }) {
         >
           <i className="fa fa-bars"></i>
         </button>
-        <Link className="text-dark" to="/">
+        <Link className="text-light" to="/">
           مشاهده وبسایت
         </Link>
       </div>
@@ -38,14 +38,6 @@ function Header({ onToggleSideBar }) {
             className="dropdown-menu dropdown-menu-dark"
             aria-labelledby="dropdownMenuButton2"
           >
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
             <li>
               <button className="dropdown-item" onClick={logout}>
                 خروج

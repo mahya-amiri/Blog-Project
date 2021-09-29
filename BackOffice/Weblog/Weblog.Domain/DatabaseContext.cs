@@ -12,6 +12,11 @@ namespace Weblog.Domain
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<Article>()
+            //    .HasOne<User>(a => a.User)
+            //    .WithMany()
+            //    .HasForeignKey(a => a.UserId);
+
             modelBuilder.Entity<Comment>()
                 .HasOne<User>(c => c.User)
                 .WithMany(c => c.Comments)
@@ -25,6 +30,8 @@ namespace Weblog.Domain
                 .HasForeignKey(c => c.ParentId)
                 .IsRequired(false)
                 .OnDelete(DeleteBehavior.NoAction);
+
+            
 
             modelBuilder.Entity<User>()
                 .HasIndex(x => x.Email).IsUnique(true);

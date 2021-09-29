@@ -9,9 +9,7 @@ function Register() {
   const {
     register,
     handleSubmit,
-    reset,
     watch,
-    getValues,
     formState: { errors },
   } = useForm();
 
@@ -104,7 +102,7 @@ function Register() {
                 required: "تکرار رمز عبور را وارد کنید",
                 validate: (password_confirm) => {
                   if (password_confirm !== watch("password")) {
-                    return "تکرار کلمه عبور مطابقت ندارد";
+                    return "تکرار رمز عبور مطابقت ندارد";
                   }
                   return true;
                 },

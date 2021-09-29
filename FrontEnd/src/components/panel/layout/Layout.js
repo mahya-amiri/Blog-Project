@@ -1,8 +1,9 @@
-import Footer from "../../../common/panel/footer/Footer";
-import Header from "../../../common/panel/header/Header";
 import Sidebar from "../../../common/panel/sidebar/Sidebar";
+import Header from "../../../common/panel/header/Header";
+import Footer from "../../../common/panel/footer/Footer";
 import { useState } from "react";
 import "./style.scss";
+
 function PanelLayout({ children }) {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
   const onToggleSideBar = (value = null) => {
@@ -17,7 +18,7 @@ function PanelLayout({ children }) {
       <Sidebar onToggleSideBar={onToggleSideBar} open={isSideBarOpen} />
       <div id="route-container" className="flex-grow-1">
         <Header onToggleSideBar={onToggleSideBar} />
-        <div id="content" className="container py-3">
+        <div id="content" className="container-fluid py-3">
           {children}
         </div>
         <Footer />
